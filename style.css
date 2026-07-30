@@ -126,11 +126,36 @@ img { max-width: 100%; display: block; }
 .cta-btn svg { transition: transform 0.2s; }
 .cta-btn:hover svg { transform: translateX(4px); }
 
-/* ===== HERO ===== */
+/* ===== HERO DECORATIVE LINES ===== */
 .hero {
     padding-top: 72px;
     background: var(--branco);
+    position: relative;
+    overflow: hidden;
 }
+.hero-lines {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none; z-index: 0;
+}
+.hero-lines::before {
+    content: '';
+    position: absolute; top: 0; left: 0; width: 200%; height: 1px;
+    background: rgba(13,27,42,0.08);
+    transform-origin: top left;
+    transform: rotate(25deg) translateX(-20%);
+}
+.hero-lines::after {
+    content: '';
+    position: absolute; top: 50%; left: 0; width: 200%; height: 1px;
+    background: rgba(13,27,42,0.06);
+    transform-origin: top left;
+    transform: rotate(-15deg);
+}
+.hero-bg {
+    position: absolute; top: 0; right: 0; width: 60%; height: 100%;
+    pointer-events: none; overflow: hidden;
+}
+.hero-triangle { width: 100%; height: 100%; }
 .hero-inner {
     max-width: var(--max); margin: 0 auto;
     padding: 80px 24px 100px;
@@ -139,6 +164,7 @@ img { max-width: 100%; display: block; }
     gap: 60px;
     align-items: center;
     min-height: calc(100vh - 72px);
+    position: relative; z-index: 1;
 }
 .hero-content { display: flex; flex-direction: column; gap: 20px; }
 .hero-kicker {
@@ -254,6 +280,34 @@ img { max-width: 100%; display: block; }
 }
 
 /* ===== MAPA (fundo branco) ===== */
+.mapa {
+    position: relative; overflow: hidden;
+}
+.mapa-lines {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+}
+.mapa-lines::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 200%; height: 1px;
+    background: rgba(13,27,42,0.07);
+    transform-origin: top left;
+    transform: rotate(20deg) translateX(-10%);
+}
+.mapa-lines::after {
+    content: '';
+    position: absolute; bottom: 30%; left: 0;
+    width: 200%; height: 1px;
+    background: rgba(13,27,42,0.05);
+    transform-origin: top left;
+    transform: rotate(-10deg);
+}
+.mapa-triangle-bg {
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 100%; max-width: 1200px; pointer-events: none;
+}
+.mapa .section-inner { position: relative; z-index: 1; }
 .mapa-intro {
     font-size: 1.1rem; color: var(--cinza); max-width: 500px;
     margin-bottom: 60px;
@@ -400,8 +454,33 @@ img { max-width: 100%; display: block; }
 .cta {
     background: var(--azul);
     text-align: center;
+    position: relative; overflow: hidden;
 }
-.cta .section-inner { padding: 100px 24px; }
+.cta-lines {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+}
+.cta-lines::before {
+    content: '';
+    position: absolute; top: 20%; left: 0;
+    width: 200%; height: 1px;
+    background: rgba(245,241,232,0.07);
+    transform-origin: top left;
+    transform: rotate(15deg) translateX(-5%);
+}
+.cta-lines::after {
+    content: '';
+    position: absolute; bottom: 20%; left: 0;
+    width: 200%; height: 1px;
+    background: rgba(245,241,232,0.05);
+    transform-origin: top left;
+    transform: rotate(-20deg);
+}
+.cta-triangle {
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 100%; max-width: 800px; pointer-events: none;
+}
+.cta .section-inner { position: relative; z-index: 1; padding: 100px 24px; }
 .cta-card-highlight {
     max-width: 680px; margin: 0 auto;
     display: flex; flex-direction: column; align-items: center; gap: 16px;
