@@ -57,8 +57,11 @@ img { max-width: 100%; display: block; }
     font-family: var(--heading); font-weight: 700; font-size: 0.9rem;
     letter-spacing: 0.2em; color: var(--branco);
 }
-.nav-logo-icon path:first-child { fill: var(--dourado); }
-.nav-logo-icon rect { fill: var(--azul); }
+.nav-logo-img {
+    width: 36px; height: 36px;
+    filter: invert(1);
+    border-radius: 4px;
+}
 .nav-links { display: flex; align-items: center; gap: 36px; }
 .nav-links a {
     font-size: 0.82rem; font-weight: 500; color: rgba(245,241,232,0.65);
@@ -505,6 +508,10 @@ img { max-width: 100%; display: block; }
 }
 .footer-brand {
     display: flex; align-items: center; gap: 8px;
+}
+.footer-logo-img {
+    width: 48px; height: 48px;
+    border-radius: 4px;
 }
 .footer-brand strong {
     font-family: var(--heading); font-size: 0.8rem; font-weight: 700;
