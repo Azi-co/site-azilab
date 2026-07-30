@@ -203,22 +203,25 @@ img { max-width: 100%; display: block; }
 
 /* ===== PROBLEMA (azul escuro, diagonal) ===== */
 .problema {
-    background: transparent;
-    margin-top: -80px;
-    padding-top: 0;
     position: relative;
-    z-index: 1;
-}
-.problema-bg {
+    padding: 100px 0;
     background: var(--azul);
     color: var(--branco);
-    clip-path: polygon(0 80px, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 70px, 100% 0, 100% 100%, 0 100%);
+    margin-top: -70px;
 }
-.problema-bg .section-title { color: var(--branco); }
-.problema-bg .card { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); }
-.problema-bg .card-title { color: var(--branco); }
-.problema-bg .card-text { color: rgba(245,241,232,0.65); }
-.problema-bg .card::before { color: var(--dourado); }
+.problema-diagonal {
+    position: absolute; top: 0; left: 0; right: 0; height: 70px;
+    background: var(--branco);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 70px);
+}
+.problema .section-title { color: var(--branco); }
+.problema .section-inner { padding-top: 0; padding-bottom: 0; }
+.problema .card { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); }
+.problema .card-title { color: var(--branco); }
+.problema .card-text { color: rgba(245,241,232,0.65); }
+.problema .card::before { color: var(--dourado); }
+.cards-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
@@ -336,18 +339,14 @@ img { max-width: 100%; display: block; }
 
 /* ===== PROVA (azul escuro, diagonal) ===== */
 .prova {
-    background: transparent;
-    margin-top: -80px;
-    padding-top: 0;
-    position: relative;
-    z-index: 0;
-}
-.prova-bg {
+    padding: 100px 0;
     background: var(--azul);
     color: var(--branco);
-    clip-path: polygon(0 0, 100% 80px, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 60px, 100% 100%, 0 100%);
+    margin-top: -60px;
 }
-.prova-bg .section-title { color: var(--branco); }
+.prova .section-title { color: var(--branco); }
+.prova .section-inner { padding-top: 0; padding-bottom: 0; }
 .cases-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -451,11 +450,12 @@ img { max-width: 100%; display: block; }
     .hero-visual { max-width: 480px; }
     .photo-frame-inner { min-height: 360px; }
 
-    .problema { margin-top: 0; }
-    .problema-bg { clip-path: none; }
+    .problema { clip-path: none; margin-top: 0; padding: 80px 0; }
+    .problema-diagonal { display: none; }
+    .problema .section-inner { padding: 0 24px; }
 
-    .prova { margin-top: 0; }
-    .prova-bg { clip-path: none; }
+    .prova { clip-path: none; margin-top: 0; padding: 80px 0; }
+    .prova .section-inner { padding: 0 24px; }
 
     .cards-grid { grid-template-columns: 1fr; }
     .zigzag-item {
