@@ -156,45 +156,40 @@ img { max-width: 100%; display: block; }
 .hero-micro {
     font-size: 0.82rem; color: var(--cinza-claro);
 }
-/* card visual do hero */
+/* foto no hero */
 .hero-visual { position: relative; }
-.hero-card {
-    background: var(--bege);
+.photo-frame {
     border: 1px solid var(--borda);
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--sombra);
+    background: var(--bege-claro);
 }
-.hero-card-top {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 20px 24px;
-    border-bottom: 1px solid var(--borda);
+.photo-frame-inner {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    display: flex; align-items: center; justify-content: center;
 }
-.hero-card-label {
-    font-family: var(--heading); font-size: 0.65rem; font-weight: 700;
-    letter-spacing: 0.15em; color: var(--cinza);
-}
-.hero-card-top strong {
-    font-family: var(--heading); font-size: 1.8rem; font-weight: 800;
-    color: var(--dourado-escuro); line-height: 1;
-}
-.hero-card-body {
-    padding: 16px 24px;
-    display: flex; flex-direction: column; gap: 14px;
-}
-.hero-card-item {
-    display: flex; align-items: center; gap: 14px;
-    font-family: var(--heading); font-size: 1rem; font-weight: 600;
-    text-transform: uppercase; color: var(--azul);
-}
-.hero-card-dot {
-    width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
-}
-.hero-card-footer {
-    padding: 14px 24px;
-    border-top: 1px solid var(--borda);
-    font-family: var(--heading); font-size: 0.78rem; font-weight: 600;
+.photo-placeholder {
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
     color: var(--cinza-claro);
+}
+.photo-icon { width: 48px; height: 48px; opacity: 0.5; }
+.photo-label {
+    font-family: var(--heading); font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.18em; color: var(--cinza-claro);
+}
+.photo-sub {
+    font-size: 0.72rem; color: var(--cinza-claro);
+}
+.photo-frame-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 20px; text-align: center;
+    background: linear-gradient(transparent, rgba(13,27,42,0.75));
+}
+.photo-frame-overlay span {
+    font-family: var(--heading); font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.12em; color: var(--branco);
 }
 .hero-badge {
     display: flex; gap: 8px; margin-top: 16px;
@@ -206,9 +201,17 @@ img { max-width: 100%; display: block; }
     font-size: 0.75rem; font-weight: 500; color: var(--cinza);
 }
 
-/* ===== PROBLEMA (fundo bege claro) ===== */
+/* ===== PROBLEMA (fundo bege claro, diagonal) ===== */
 .problema {
+    background: var(--branco);
+    margin-top: -60px;
+    padding-top: 0;
+    position: relative;
+    z-index: 1;
+}
+.problema-bg {
     background: var(--bege-claro);
+    clip-path: polygon(0 60px, 100% 0, 100% 100%, 0 100%);
 }
 .cards-grid {
     display: grid;
@@ -326,9 +329,17 @@ img { max-width: 100%; display: block; }
 
 .mapa-cta-wrap { text-align: center; }
 
-/* ===== PROVA (fundo bege claro) ===== */
+/* ===== PROVA (fundo bege claro, diagonal) ===== */
 .prova {
+    background: var(--branco);
+    margin-top: -60px;
+    padding-top: 0;
+    position: relative;
+    z-index: 1;
+}
+.prova-bg {
     background: var(--bege-claro);
+    clip-path: polygon(0 0, 100% 60px, 100% 100%, 0 100%);
 }
 .cases-grid {
     display: grid;
@@ -369,12 +380,10 @@ img { max-width: 100%; display: block; }
     font-family: var(--heading); font-size: 0.6rem; font-weight: 700;
     letter-spacing: 0.12em; text-transform: uppercase;
     padding: 4px 10px; border-radius: 4px; margin-bottom: 8px;
+    background: var(--borda); color: var(--cinza);
 }
-.case-label--before {
-    background: #FEE2E2; color: #991B1B;
-}
-.case-label--after {
-    background: #D1FAE5; color: #065F46;
+.case-label--depois {
+    background: var(--dourado); color: var(--azul);
 }
 .case-card p {
     font-size: 0.9rem; color: var(--cinza); line-height: 1.55;
@@ -434,6 +443,14 @@ img { max-width: 100%; display: block; }
         min-height: auto;
     }
     .hero-visual { max-width: 480px; }
+    .photo-frame-inner { min-height: 360px; }
+
+    .problema { margin-top: 0; }
+    .problema-bg { clip-path: none; }
+
+    .prova { margin-top: 0; }
+    .prova-bg { clip-path: none; }
+
     .cards-grid { grid-template-columns: 1fr; }
     .zigzag-item {
         grid-template-columns: 1fr;
